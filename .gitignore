@@ -14,6 +14,8 @@ lerna-debug.log*
 
 ./serviceAccountKey.json
 
+serviceAccountKey.json
+
 # OS
 .DS_Store
 

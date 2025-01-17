@@ -33,7 +33,7 @@ export class UsersController {
        return this.usersService.update(id, user) 
     }
     
-    @Post('update/:id')
+    @Put('update/:id')
     @HasRoles(JwtRole.CLIENT)
     @UseGuards(JwtAuthGuard, JwtRolesGuard)
     @UseInterceptors(FileInterceptor('file'))
