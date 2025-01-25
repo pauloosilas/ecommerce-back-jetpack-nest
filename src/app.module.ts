@@ -8,6 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { RolesModule } from './roles/roles.module';
 import { Rol } from './roles/rol.entity';
+import { CategoriesModule } from './categories/categories.module';
+import { Category } from './categories/category.entity';
 
 @Module({
   imports: [
@@ -18,7 +20,7 @@ import { Rol } from './roles/rol.entity';
       username: 'root',
       password: 'Pauloosilas@1',
       database: 'ecommerce_db',
-      entities: [User, Rol],
+      entities: [User, Rol, Category],
       synchronize: true
     }),
     JwtModule.register({
@@ -27,7 +29,8 @@ import { Rol } from './roles/rol.entity';
     }),
     UsersModule,
     AuthModule,
-    RolesModule
+    RolesModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

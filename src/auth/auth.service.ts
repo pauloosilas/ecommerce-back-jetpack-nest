@@ -19,13 +19,13 @@ export class AuthService {
         const emailExist = await this.usersRepository.findOneBy({email: user.email})
 
         if(emailExist){
-            return new HttpException("O email já está sendo utilizado", HttpStatus.CONFLICT);
+            throw new HttpException("O email já está sendo utilizado", HttpStatus.CONFLICT);
         }
 
         const phoneExist = await this.usersRepository.findOneBy({phone: user.phone})
       
         if(phoneExist){
-            return new HttpException("O celular já está sendo utilizado", HttpStatus.CONFLICT);
+            throw new HttpException("O celular já está sendo utilizado", HttpStatus.CONFLICT);
         }
 
         const newUser = this.usersRepository.create(user);
